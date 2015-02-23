@@ -2,6 +2,7 @@ var React = require('react');
 var Immutable = require('immutable');
 var TodoAdder = require('./todoAdder.jsx');
 var TodoList = require('./todoList.jsx');
+var AutoCounter = require("./autoCounter.jsx");
 
 var ItemRecord = Immutable.Record({
 	text: "",
@@ -10,8 +11,12 @@ var ItemRecord = Immutable.Record({
 
 var TodoApp = React.createClass({
 	getInitialState: function () {
+		var initialItems = this.props.items.map(item => {
+			return new ItemRecord(item);
+		});
+
 		return {
-			items: Immutable.List()
+			items: Immutable.List(initialItems)
 		};
 	},
 
@@ -52,5 +57,10 @@ var TodoApp = React.createClass({
 	}
 });
 
-// mount the todo app under body
-React.render(<TodoApp />, document.body);
+// mount the todo app under body with some default todos
+var initialItems = [
+	{ done: false, todo: "Hold a presentation about React.js" },
+	{ done: false, todo: "Do some live coding" },
+	{ done: false, todo: "Add a timer" }
+];
+React.render(<TodoApp items={initialItems} />, document.body);
