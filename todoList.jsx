@@ -12,17 +12,21 @@ var TodoList = React.createClass({
 
 	render: function() {
 		var items = this.props.items.map(item => {
-			return <TodoItem item={item} onDelete={this.onDelete} onUpdate={this.onUpdate} />;
+			return <TodoItem item={item} onDelete={this.onDelete} onUpdate={this.onUpdate} key={item.text} />;
 		});
 
 		return (
 			<table>
-				<tr>
-					<th>Done</th>
-					<th>Task</th>
-					<th>Remove</th>
-				</tr>
-				{items.toArray()}
+				<thead>
+					<tr>
+						<th>Done</th>
+						<th>Task</th>
+						<th>Remove</th>
+					</tr>
+				</thead>
+				<tbody>
+					{items.toArray()}
+				</tbody>
 			</table>
 		);
 	}

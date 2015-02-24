@@ -59,8 +59,16 @@ var TodoApp = React.createClass({
 
 // mount the todo app under body with some default todos
 var initialItems = [
-	{ done: false, todo: "Hold a presentation about React.js" },
-	{ done: false, todo: "Do some live coding" },
-	{ done: false, todo: "Add a timer" }
+	{ done: true, text: "Prepare a presentation"},
+	{ done: false, text: "Hold a presentation about React.js" },
+	{ done: false, text: "Do some live coding" },
+	{ done: false, text: "Add a timer" }
 ];
-React.render(<TodoApp items={initialItems} />, document.body);
+var renderThis = (
+	<div>
+		<AutoCounter />
+		<TodoApp items={initialItems} />
+		<TodoApp items={[]} />
+	</div>
+	);
+React.render(renderThis, document.body);

@@ -16,17 +16,22 @@ var TodoItem = React.createClass({
 		var done = item.done;
 		var text = item.text;
 
+		var rowStyle = {};
+		if (done) {
+			rowStyle.backgroundColor = "lightgreen";
+			rowStyle.fontWeight = "bold";
+		}
+
 		return (
-			<tr>
+			<tr style={rowStyle}>
 				<td>
-					<input type="checkbox" checked={done} onClick={this.toggleDone} />
-					{done ? "done" : ""}
+					<input type="checkbox" checked={done} onChange={this.toggleDone} />
 				</td>
 				<td>
 					<span>{text}</span>
 				</td>
 				<td>
-					<button onClick={this.deleteItem}>Remove</button>
+					<button onClick={this.deleteItem}>x</button>
 				</td>
 			</tr>
 		);
