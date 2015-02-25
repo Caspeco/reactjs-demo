@@ -2,6 +2,10 @@
 
 Powerpoints is located at `/Presentation/`
 
+*Talk to use*:
+Just open an issue here at github, or tweet me at @bigcheeseanders, or email us at anders@caspeco.se / henrik@caspeco.se
+
+
 Some very useful links:
 
 * React homepage: http://facebook.github.io/react/
